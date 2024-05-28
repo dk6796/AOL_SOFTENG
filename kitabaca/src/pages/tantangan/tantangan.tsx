@@ -126,7 +126,7 @@ export default function TantanganPage(){
                else {
                     if(user?.Level != 1){
                          if(user?.BookCategory == "fiksi"){
-                              if(user.Level ?? 0 % 2 != 0){
+                              if((user.Level ?? 0) % 2 != 0){
                                    setCategoryFiksi();
                               }
                               else{
@@ -134,7 +134,7 @@ export default function TantanganPage(){
                               }
                          }
                          else{
-                              if(user?.Level ?? 0 % 2 == 0){
+                              if((user?.Level ?? 0) % 2 == 0){
                                    setCategoryFiksi();
                               }
                               else{
