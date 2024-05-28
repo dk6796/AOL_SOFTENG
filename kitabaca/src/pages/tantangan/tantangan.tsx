@@ -261,7 +261,7 @@ export default function TantanganPage(){
                return 'bookshelf'
           }
           else{
-               return 'silk-coverd';
+               return 'silk-covered';
           }
      }
      
