@@ -68,8 +68,8 @@ export default function QuizPage(){
      const updateCoinToDB = async () => {
           const total = ((totalPoint*10)+(winStreak*3));
           const total_coin = total + (user?.TotalCoin ?? 0);
-          console.log("TOTAL: ", total);
-          console.log("COIN : ", total_coin);
+          // console.log("TOTAL: ", total);
+          // console.log("COIN : ", total_coin);
           
           const response = await updateCoin(user?.UserID ?? 0, total_coin);
           if(response != "Success"){
