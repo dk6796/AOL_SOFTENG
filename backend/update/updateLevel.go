@@ -34,7 +34,7 @@ func UpdateLevel(c *gin.Context) {
 
 	fmt.Println("TOTAL COIN: ", body.Level)
 
-	user.Level = body.Level+1
+	user.Level = (body.Level+1)
 	user.SaveBookID = 0
 	user.SavePage = 0
 
@@ -44,6 +44,8 @@ func UpdateLevel(c *gin.Context) {
 		})
 		return
 	}
+
+	fmt.Println("Level: ", user.Level)
 
 
 	c.JSON(http.StatusOK, gin.H{
