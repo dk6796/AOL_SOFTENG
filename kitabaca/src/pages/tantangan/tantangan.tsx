@@ -301,34 +301,66 @@ export default function TantanganPage(){
                     </div>
                     <div className="level-container">
                          <div className="level" style={{backgroundImage: `url('/src/assets/level3.jpg')`}}></div>
-                         <div className="silk-covered"></div>
+                         <div className={checkLevel(3)}>
+                              {checkLevel(3) == 'bookshelf' && (
+                                   <div className="play-bttn" onClick={() => handleLevel(3)}></div>
+                              )}
+                         </div>
                     </div>
                     <div className="level-container">
-                         <div className="silk-covered"></div>
+                         <div className={checkLevel(4)}>
+                              {checkLevel(4) == 'bookshelf' && (
+                                   <div className="play-bttn" onClick={() => handleLevel(4)}></div>
+                              )}
+                         </div>
                          <div className="level" style={{backgroundImage: `url('/src/assets/level4.jpg')`}}></div>
                     </div>
                     <div className="level-container">
                          <div className="level" style={{backgroundImage: `url('/src/assets/level5.jpg')`}}></div>
-                         <div className="silk-covered"></div>
+                         <div className={checkLevel(5)}>
+                              {checkLevel(5) == 'bookshelf' && (
+                                   <div className="play-bttn" onClick={() => handleLevel(5)}></div>
+                              )}
+                         </div>
                     </div>
                     <div className="level-container">
-                         <div className="silk-covered"></div>
+                         <div className={checkLevel(6)}>
+                              {checkLevel(6) == 'bookshelf' && (
+                                   <div className="play-bttn" onClick={() => handleLevel(6)}></div>
+                              )}
+                         </div>
                          <div className="level" style={{backgroundImage: `url('/src/assets/level6.jpg')`}}></div>
                     </div>
                     <div className="level-container">
                          <div className="level" style={{backgroundImage: `url('/src/assets/level7.jpg')`}}></div>
-                         <div className="silk-covered"></div>
+                         <div className={checkLevel(7)}>
+                              {checkLevel(7) == 'bookshelf' && (
+                                   <div className="play-bttn" onClick={() => handleLevel(7)}></div>
+                              )}
+                         </div>
                     </div>
                     <div className="level-container">
-                         <div className="silk-covered"></div>
+                         <div className={checkLevel(8)}>
+                              {checkLevel(8) == 'bookshelf' && (
+                                   <div className="play-bttn" onClick={() => handleLevel(8)}></div>
+                              )}
+                         </div>
                          <div className="level" style={{backgroundImage: `url('/src/assets/level8.jpg')`}}></div>
                     </div>
                     <div className="level-container">
                          <div className="level" style={{backgroundImage: `url('/src/assets/level9.jpg')`}}></div>
-                         <div className="silk-covered"></div>
+                         <div className={checkLevel(9)}>
+                              {checkLevel(9) == 'bookshelf' && (
+                                   <div className="play-bttn" onClick={() => handleLevel(9)}></div>
+                              )}
+                         </div>
                     </div>
                     <div className="level-container">
-                         <div className="silk-covered"></div>
+                         <div className={checkLevel(10)}>
+                              {checkLevel(10) == 'bookshelf' && (
+                                   <div className="play-bttn" onClick={() => handleLevel(10)}></div>
+                              )}
+                         </div>
                          <div className="level" style={{backgroundImage: `url('/src/assets/level10.jpg')`}}></div>
                     </div>
                </div>
