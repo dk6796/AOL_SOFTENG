@@ -1,0 +1,317 @@
+@font-face {
+     font-family: 'Atma-medium';
+     src: url('../assets/Atma-Medium.ttf');
+}
+
+@font-face {
+     font-family: 'Atma-regular';
+     src: url('../assets/Atma-Regular.ttf');
+}
+
+@font-face {
+     font-family: 'Atma-semibold';
+     src: url('../assets/Atma-SemiBold.ttf');
+}
+
+@font-face {
+     font-family: 'Atma-bold';
+     src: url('../assets/Atma-Bold.ttf');
+}
+
+#login-page-main-container{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     height: 100vh;
+     overflow: hidden;
+     /* background-color: red; */
+}
+
+#selotip-div{
+     background-image: url('../assets/selotip.png');
+     background-size: 100% 100%;
+     width: 15vw;
+     height: 12vh;
+     position: absolute;
+     top: 5vh;
+     right: 42vw;
+     opacity: 50%;
+     transform: rotate(10deg);
+}
+
+#login-page-container{
+     background-image: url('../assets/bacakita-notes.png');
+     background-size: 100% 100%;
+     width: 35vw;
+     height: 85vh;
+     display: flex;
+     flex-direction: column;
+     padding: 4vw;
+     /* margin-left: 35vw; */
+}
+
+#login-page-container h1{
+     font-family: 'Atma-semibold';
+}
+
+#login-form{
+     display: flex;
+     flex-direction: column;
+     gap: 1vh;
+}
+
+#login-form label{
+     font-family: 'Atma-semibold';
+}
+
+#login-form input{
+     font-family: 'Atma-medium';
+     padding-left: 0.5vw;
+     height: 5vh;
+     border-radius: 0.5vw;
+     border: none;
+     font-size: 1.2vw;
+}
+
+#login-submit-bttn{
+     background-color: #F3B664;
+     height: 6vh;
+     color: white;
+     font-size: 1.3vw;
+     text-align: center;
+     line-height: 6vh;
+     border-radius: 0.5vw;
+     font-family: 'Atma-semibold';
+     border: none;
+     margin-top: 1vh;
+}
+
+#login-desc-container{
+     display: flex;
+     align-items: center;
+     margin-top: 2vh;
+}
+
+#login-desc-container hr{
+     flex-grow: 1;
+     margin: 0.5vw;
+     border: none;
+     border: 0.1vw solid black; 
+}
+
+#login-else-button-container{
+     margin-top: 2vh;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 1.5vh;
+}
+
+#otp-bttn{
+     background-color: #EC8F5E;
+     width: 100%;
+     height: 6vh;
+     color: white;
+     font-size: 1.3vw;
+     text-align: center;
+     line-height: 6vh;
+     border-radius: 0.5vw;
+     font-family: 'Atma-semibold';
+}
+
+#register-bttn{
+     background-color: #FF8F8F;
+     width: 100%;
+     height: 6vh;
+     color: white;
+     font-size: 1.3vw;
+     text-align: center;
+     line-height: 6vh;
+     border-radius: 0.5vw;
+     font-family: 'Atma-semibold';
+}
+
+#login-submit-bttn:hover{
+     cursor: pointer;
+     color: #F3B664;
+     background-color: white;
+}
+
+#otp-bttn:hover{
+     cursor: pointer;
+     color: #EC8F5E;
+     background-color: white;
+}
+
+#register-bttn:hover{
+     cursor: pointer;
+     color: #FF8F8F;
+     background-color: white;
+}
+
+#forgot-pswd-bttn{
+     color: black;
+     text-align: center;
+     line-height: 5vh;
+}
+
+#x-login{
+     position: absolute;
+     width: 2vw;
+     height: 2vw;
+     margin: 1vw 0 0 26vw;
+}
+
+#x-login::before,
+#x-login::after{
+     content: '';
+     position: absolute;
+     width: 0.3vw;
+     height: 100%;
+     background-color: black;
+}
+
+#x-login::before{
+     transform: rotate(45deg);
+}
+
+#x-login::after{
+     transform: rotate(-45deg);
+}
+
+#x-login:hover{
+     cursor: pointer;
+}
+
+#scrapbook1{
+     background-image: url('../assets/scrapbook-2.png');
+     background-size: 100% 100%;
+     width: 70vw;
+     height: 70vh;
+     position: fixed;
+     top: -10vh;
+     right: -37vw;
+     z-index: -1;
+     transform: rotate(-135deg);
+     /* animation: scrapIn-1 1s ease-out; */
+}
+
+#scrapbook2{
+     background-image: url('../assets/scrapbook-2.png');
+     background-size: 100% 100%;
+     width: 70vw;
+     height: 70vh;
+     position: fixed;
+     transform: rotate(45deg);
+     bottom: -10vw;
+     left: -35vw;
+     z-index: 1;
+}
+
+#scrapbook3{
+     background-image: url('../assets/scrapbook-3.png');
+     background-size: 100% 100%;
+     width: 70vw;
+     height: 70vh;
+     position: absolute;
+     top: -50vh;
+     left: -25vw;
+     transform: rotate(-45deg);
+}
+
+#dolphin{
+     background-image: url('../assets/dolphin-1.png');
+     background-size: 100% 100%;
+     width: 27vw;
+     height: 80vh;
+     position: relative;
+     top: 15vh;
+     left: 2vw;
+}
+
+#scrapbook4{
+     background-image: url('../assets/scrapbook-3.png');
+     background-size: 100% 100%;
+     width: 70vw;
+     height: 70vh;
+     position: fixed;
+     bottom: -30vh;
+     right: -33vw;
+     z-index: -1;
+     transform: rotate(145deg);
+}
+
+#scrapbook5{
+     background-image: url('../assets/scrapbook-4.png');
+     background-size: 100% 100%;
+     width: 70vw;
+     height: 40vh;
+     position: fixed;
+     top: -30vh;
+     right: -5vw;
+     z-index: 1;
+     transform: rotate(185deg);
+}
+
+#scrapbook6{
+     background-image: url('../assets/scrapbook-4.png');
+     background-size: 100% 100%;
+     width: 60vw;
+     height: 40vh;
+     position: fixed;
+     bottom: -28vh;
+     left: 0vw;
+     transform: rotate(180deg);
+     z-index: 1;
+}
+
+#scrapbook7{
+     background-image: url('../assets/scrapbook-5.png');
+     background-size: 100% 100%;
+     width: 60vw;
+     height: 40vh;
+     position: fixed;
+     top: -30vh;
+     left: -2vw;
+     transform: rotate(185deg);
+}
+
+#flower{
+     background-image: url('../assets/flower.png');
+     background-size: 100% 100%;
+     width: 25vw;
+     height: 60vh;
+     position: fixed;
+     bottom: 25vh;
+     left: -7vw;
+}
+
+@keyframes scrapIn-1 {
+     0% {
+          top: -10vw; 
+          right: -5vw;
+     }
+     20% {
+          top: -8vw; 
+          transform: rotate(10deg);
+          right: -3vw;
+     }
+     40% {
+          top: -6vw; 
+          transform: rotate(-10deg);
+          right: -1vw;
+     }
+     60% {
+          top: -4vw; 
+          transform: rotate(-5deg);
+     }
+     80% {
+          top: -2vw; 
+          transform: rotate(5deg);
+     }
+     100% {
+          top: 0vw; 
+          transform: rotate(0deg);
+     }
+}

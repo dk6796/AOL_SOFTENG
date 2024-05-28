@@ -1,0 +1,540 @@
+#game-container{
+     margin-top: 10vh;
+     /* background-color: red; */
+     height: 850vh;
+     display: flex;
+     flex-direction: column;
+     padding-top: 10vh;
+     gap: 10vh;
+}
+
+#frame-petunjuk{
+     background-image: url('../assets/frame-2.png');
+     background-size: 100% 100%;
+     width: 50vw;
+     height: 60vh;
+     margin-top: 20vh;
+     margin-left: 26vw;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     padding: 6vw;
+     text-align: center;
+     gap: 1vh;
+}
+
+#frame-petunjuk h1{
+     font-family: Atma-semibold;
+}
+
+.level-container{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 4vw;
+}
+
+.level{
+     background-size: 100% 100%;
+     width: 15vw;
+     height: 40vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 5vw;
+     text-align: center;
+     line-height: 5vw;
+     color: white;
+}
+
+.bookshelf{
+     background-image: url('../assets/bookshelf.png');
+     background-size: 100% 100%;
+     width: 60vw;
+     height: 60vh;
+     display: flex;
+     justify-content: center;
+     padding-top: 14vh;
+}
+
+.silk-covered{
+     background-image: url('../assets/silk-covered1.png');
+     background-size: 100% 100%;
+     width: 60vw;
+     height: 80vh;
+}
+
+.play-bttn{
+     background-image: url('../assets/play-bttn.png');
+     background-size: 100% 100%;
+     width: 8vw;
+     height: 17vh;
+}
+
+.play-bttn:hover{
+     background-image: url('../assets/play-bttn-hover-1.png');
+     cursor: pointer;
+}
+
+.play-bttn:active{
+     background-image: url('../assets/play-bttn-clicked-1.png');
+}
+
+.detail-container{
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.4);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     z-index: 10;
+}
+
+.container-1{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     width: 30vw;
+     height: 70vh;
+}
+
+.container-2{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     width: 32vw;
+     height: 70vh;
+}
+
+.category-container{
+     background-image: url('../assets/new-small-board.png');
+     background-size: 100% 100%;
+     width: 30vw;
+     height: 70vh;
+     position: fixed;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     gap: 1.2vw;
+}
+
+.pilbuk-container{
+     background-image: url('../assets/small-board.png');
+     background-size: 100% 100%;
+     width: 60vw;
+     height: 90vh;
+     position: fixed;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+}
+
+.down{
+     animation: moveDown 0.5s ease-out;
+}
+
+.up{
+     animation: moveUp 0.5s ease-out;
+}
+
+.in{
+     animation: fadeIn 1s ease-out;
+}
+
+.out{
+     animation: fadeOut 0.2s ease-out;
+}
+
+.x-bttn-1{
+     background-image: url('../assets/x-bttn.png');
+     background-size: 100% 100%;
+     width: 3.3vw;
+     height: 7vh;
+     position: relative;
+     z-index: 2;
+     top: -23vh;
+     left: 10vw;
+}
+
+.x-bttn-1:hover{
+     background-image: url('../assets/x-bttn-hover.png');
+     cursor: pointer;
+}
+
+.x-bttn-1:active{
+     background-image: url('../assets/x-bttn-clicked.png');
+}
+
+.x-bttn-2{
+     background-image: url('../assets/x-bttn.png');
+     background-size: 100% 100%;
+     width: 3.3vw;
+     height: 7vh;
+     position: relative;
+     z-index: 2;
+     top: -33vh;
+     left: 20vw;
+}
+
+.x-bttn-2:hover{
+     background-image: url('../assets/x-bttn-hover.png');
+     cursor: pointer;
+}
+
+.x-bttn-2:active{
+     background-image: url('../assets/x-bttn-clicked.png');
+}
+
+@keyframes moveUp {
+     0% {
+       transform: translateY(100%); 
+     }
+     100% {
+       transform: translateY(0%); 
+     }
+}
+
+@keyframes moveDown {
+     0% {
+       transform: translateY(0%); 
+     }
+     100% {
+       transform: translateY(100%); 
+     }
+}
+
+@keyframes fadeIn {
+     0% {
+       opacity: 0; 
+     }
+     100% {
+       opacity: 1;
+     }
+}
+
+@keyframes fadeOut {
+     0% {
+       opacity: 1; 
+     }
+     100% {
+       opacity: 0;
+     }
+}
+
+.category-container h2{
+     font-family: 'Atma-Bold';
+     font-size: 2.5vw;
+     position: absolute;
+     color: white;
+     top: 8vh;
+     left: 6vw;
+}
+
+.pilbuk-container h2{
+     font-family: 'Atma-Bold';
+     font-size: 2.5vw;
+     position: absolute;
+     color: white;
+     top: 10.5vh;
+     left: 4.5vw;
+}
+
+#fiksi-bttn{
+     background-image: url('../assets/fiksi-bttn.png');
+     background-size: 100% 100%;
+     width: 15vw;
+     height: 10vh;
+     margin-left: 1vw;
+}
+
+#fiksi-bttn:hover{
+     cursor: pointer;
+     background-image: url('../assets/fiksi-bttn-hover.png');
+}
+
+#fiksi-bttn:active{
+     background-image: url('../assets/fiksi-bttn-clicked.png');
+}
+
+#non-fiksi-bttn{
+     background-image: url('../assets/non-fiksi-bttn.png');
+     background-size: 100% 100%;
+     width: 15vw;
+     height: 10vh;
+     margin-left: 1vw;
+}
+
+#non-fiksi-bttn:hover{
+     cursor: pointer;
+     background-image: url('../assets/nonfiksi-bttn-hover.png');
+}
+
+#non-fiksi-bttn:active{
+     background-image: url('../assets/non-fiksi-bttn-clicked.png');
+}
+
+#notes-container{
+     width: 23vw;
+     height: 20vh;
+     position: absolute;
+     top: 49vh;
+     left: 4.5vw;
+     font-size: 0.9vw;
+}
+
+#carousel-container{
+     width: 30vw;
+     height: 30vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 2vw;
+     margin-bottom: 2vw;
+     margin-left: 3vw;
+}
+
+#pilbuk-container-1{
+     width: 60vw;
+     height: 80vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 2vw;
+     margin-right: 2vw;
+}
+
+#arrow-left{
+     background-image: url('../assets/arrow-left.png');
+     background-size: 100% 100%;
+     width: 3vw;
+     height: 7vh;
+}
+
+#arrow-left-0{
+     background-image: url('../assets/arrow-left.png');
+     background-size: 100% 100%;
+     width: 3vw;
+     height: 7vh;
+     opacity: 0;
+}
+
+
+#arrow-left:hover{
+     background-image: url('../assets/arrow-hover-left.png');
+     cursor: pointer;
+}
+
+#arrow-left:active{
+     background-image: url('../assets/arrow-clicked-left.png');
+}
+
+#pilbuk{
+     /* background-image: url('../assets/fiksi-1.png');
+     background-size: 100% 100%; */
+     width: 12vw;
+     height: 35vh;
+}
+
+#arrow-right{
+     background-image: url('../assets/arrow-right.png');
+     background-size: 100% 100%;
+     width: 3vw;
+     height: 7vh;
+}
+
+#arrow-right-0{
+     background-image: url('../assets/arrow-right.png');
+     background-size: 100% 100%;
+     width: 3vw;
+     height: 7vh;
+     opacity: 0;
+}
+
+#arrow-right:hover{
+     background-image: url('../assets/arrow-hover-right.png');
+     cursor: pointer;
+}
+
+#arrow-right:active{
+     background-image: url('../assets/arrow-clicked-right.png');
+}
+
+#header-1{
+     background-image: url('../assets/header.png');
+     background-size: 100% 100%;
+     width: 24vw;
+     height: 14vh;
+     position: absolute;
+     top: 8vh;
+     left: 0vw;
+}
+
+#sinopsis-container{
+     width: 24vw;
+     height: 40vh;
+     font-size: 1vw;
+     text-align: justify;
+     margin-right: 7vw;
+     margin-bottom: 15vh;
+}
+
+#pilbuk-container-2{
+     width: 25vw;
+     height: 20vh;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     margin-left: 3vw;
+     margin-top: 15vh;
+}
+
+#bttn-container{
+     display: flex;
+     flex-direction: column;
+     gap: 1vh;
+     margin-left: 3.2vw;
+}
+
+#pilih-bttn{
+     background-image: url('../assets/bttn.png');
+     background-size: 100% 100%;
+     width: 10vw;
+     height: 7vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: white;
+     font-family: Atma-bold;
+     font-size: 1.5vw;
+}
+
+#pilih-bttn:hover{
+     background-image: url('../assets/bttn-hover.png');
+     cursor: pointer;
+}
+
+#pilih-bttn:active{
+     background-image: url('../assets/bttn-clicked.png');
+}
+
+#acak-bttn{
+     background-image: url('../assets/bttn.png');
+     background-size: 100% 100%;
+     width: 10vw;
+     height: 7vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: white;
+     font-family: Atma-bold;
+     font-size: 1.5vw;
+}
+
+#acak-bttn-0{
+     background-image: url('../assets/bttn.png');
+     background-size: 100% 100%;
+     width: 10vw;
+     height: 7vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: white;
+     font-family: Atma-bold;
+     font-size: 1.5vw;
+     opacity: 0;
+}
+
+#acak-bttn:hover{
+     background-image: url('../assets/bttn-hover.png');
+     cursor: pointer;
+}
+
+#acak-bttn:active{
+     background-image: url('../assets/bttn-clicked.png');
+}
+
+#level-progress-background{
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.4);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     z-index: 10;
+}
+
+.level-progress-container{
+     background-image: url('../assets/new-small-board.png');
+     background-size: 100% 100%;
+     width: 30vw;
+     height: 65vh;
+     animation: moveUp 0.5s ease;
+}
+
+.level-progress-container h1{
+     color: white;
+     font-family: Atma-bold;
+     position: relative;
+     top: 7vh;
+     left: 7vw;
+}
+
+#level-progress-desc{
+     display: flex;
+     flex-direction: column;
+     width: 24vw;
+     height: 30vh;
+     position: relative;
+     top: 13vh;
+     left: 4vw;
+     justify-content: center;
+     gap: 1.4vh;
+}
+
+.prog-desc-container{
+     display: flex;
+     gap: 1vw;
+     color: black;
+}
+
+.prog-desc-container h2{
+     color: black;
+     font-size: 1.3vw;
+     font-family: Atma-bold;
+}
+
+#prog-bttn-container{
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     margin-top: 2vh;
+}
+
+#ok-prog-bttn{
+     background-image: url('../assets/bttn.png');
+     background-size: 100% 100%;
+     width: 5.2vw;
+     height: 6vh;
+     text-align: center;
+     line-height: 6vh;
+     color: white;
+     font-family: Atma-bold;
+}
+
+#ok-prog-bttn:hover{
+     background-image: url('../assets/bttn-hover.png');
+     cursor: pointer;
+}
+
+#ok-prog-bttn:active{
+     background-image: url('../assets/bttn-clicked.png');
+}

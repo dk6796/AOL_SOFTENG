@@ -1,0 +1,387 @@
+@font-face {
+     font-family: 'Atma-medium';
+     src: url('../assets/Atma-Medium.ttf');
+}
+
+#navbar-main-container{
+     height: 15vh;
+     display: flex;
+     justify-content: space-between;
+}
+
+#navbar{
+     display: flex;
+     height: 15vh;
+     padding-left: 7vw;
+     gap: 5vw;
+     align-items: center;
+}
+
+.navbar-link{
+     color: white;
+     transform: scaleX(0);
+     transition: all 1s ease-out;
+     transform-origin: bottom right;
+     font-size: 1.7vw;
+     text-decoration: none;
+     font-family: 'Atma-medium';
+}
+
+.link-active{
+     color: black;
+     font-size: 1.7vw;
+     text-decoration: none;
+     font-family: 'Atma-medium';
+}
+
+.navbar-menu, .active{
+     position: relative;
+}
+
+.navbar-menu::after, .active::after{
+     content: '';
+     position: absolute;
+     width: 100%;
+     top: -2vh;
+     height: 6vh;
+     left: -1vw;
+     padding: 1vw;
+     z-index: -1;
+     transform: scaleX(0);
+     transition: transform 0.5s ease-out;
+     transform-origin: bottom right;
+     background-image: url('../assets/bacakita-text.png');
+     background-size: 100% 100%;
+}
+
+ /* .navbar-menu, .active{
+     position: relative;
+}
+
+.navbar-menu::after, .active::after{
+     content: '';
+     position: absolute;
+     width: 100%;
+     transform: scaleX(0);
+     height: 0.2vw;
+     top: 3vw;
+     left: 0;
+     background-color: white;
+     transition: transform 0.25s ease-out;
+} */
+
+.navbar-menu:hover:after, .active::after{
+     transform: scaleX(1);
+     transform-origin: bottom left;
+}
+
+.navbar-menu:hover .navbar-link{
+     color: black;
+     transition: all 1s ease-out;
+}
+
+#login-bttn, #admin-bttn{
+     color: white;
+     font-size: 1.5vw;
+     text-align: center;
+     line-height: 7vh;
+     margin: 1.5vw 4vw;
+     border-radius: 0.5vw;
+     font-family: 'Atma-medium';
+     position: relative;
+     transition: all 0.5s ease-out;
+}
+
+#login-bttn::after, #admin-bttn::after{
+     content: '';
+     position: absolute;
+     width: 100%;
+     top: 0vh;
+     z-index: -1;
+     height: 3vh;
+     left: -1vw;
+     padding: 1vw;
+     transition: all 0.5s ease-out;
+     background-image: url('../assets/text-green.png');
+     background-size: 100% 100%;
+}
+
+#login-bttn:hover::after, #admin-bttn:hover::after{
+     content: '';
+     cursor: pointer;
+     position: absolute;
+     width: 100%;
+     top: 0vh;
+     z-index: -1;
+     height: 3vh;
+     left: -1vw;
+     padding: 1vw;
+     background-image: url('../assets/bacakita-text.png');
+     background-size: 100% 100%;
+}
+
+#login-bttn:hover, #admin-bttn:hover{
+     color: black;
+     cursor: pointer;
+}
+
+#header-container{
+     display: flex;
+     flex-direction: column;
+}
+
+.header-main-container{
+     display: flex;
+     height: 75vh;
+     padding: 5vh 10vw;
+     gap: 1vw;
+     align-items: center;
+}
+
+#logo-header-home{
+     background-image: url('../assets/dolphin-1.png');
+     background-size: 100% 100%;
+     width: 25vw;
+     height: 70vh;
+     margin: 1vw 0vw 0 3vw;
+}
+
+#logo-header-tantangan{
+     background-image: url('../assets/dolphin-4.png');
+     background-size: 100% 100%;
+     width: 28vw;
+     height: 73vh;
+     margin: 2vw 10vw 0 1vw;
+}
+
+#logo-header-voucher{
+     background-image: url('../assets/dolphin-3.png');
+     background-size: 100% 100%;
+     width: 28vw;
+     height: 73vh;
+     margin: 2vw 6vw 0 5vw;
+}
+
+.header-title{
+     width: 50vw;
+     height: 40vh;
+     display: flex;
+}
+
+#header-home1{
+     background-image: url('../assets/3.png');
+     background-size: 100% 100%;
+     width: 35vw;
+     height: 35vh;
+     z-index: 2;
+     position: absolute;
+     top: 18vh;
+     right: 26vw;
+}
+
+#header-home2{
+     position: absolute;
+     background-image: url('../assets/4.png');
+     background-size: 100% 100%;
+     width: 35vw;
+     height: 35vh;
+     top: 50vh;
+     right: 10vw;
+}
+
+#img-home1{
+     background-image: url('../assets/smile.png');
+     background-size: 100% 100%;
+     width: 9.5vw;
+     height: 20vh;
+     position: absolute;
+     top: 24vh;
+     right: 15vw;
+     transform: rotate(20deg);
+}
+
+#img-home2{
+     background-image: url('../assets/star.png');
+     background-size: 100% 100%;
+     width: 10vw;
+     height: 20vh;
+     position: absolute;
+     top: 56vh;
+     right: 45vw;
+     transform: rotate(-10deg);
+}
+
+#header-tantangan{
+     background-image: url('../assets/1.png');
+     background-size: 100% 100%;
+     width: 60vw;
+     height: 40vh;
+     z-index: 2;    
+     position: absolute;
+     top: 35vh;
+     right: 5vw;
+}
+
+#img-tantangan1{
+     background-image: url('../assets/flower.png');
+     background-size: 100% 100%;
+     width: 9.5vw;
+     height: 20vh;
+     position: absolute;
+     top: 58vh;
+     right: 10vw;
+     transform: rotate(20deg);
+     z-index: 2;
+}
+
+#img-tantangan2{
+     background-image: url('../assets/book.png');
+     background-size: 100% 100%;
+     width: 9.5vw;
+     height: 20vh;
+     position: absolute;
+     top: 25vh;
+     right: 46vw;
+     transform: rotate(-40deg);
+     z-index: 2;
+}
+
+#header-voucher{
+     background-image: url('../assets/2.png');
+     background-size: 100% 100%;
+     width: 50vw;
+     height: 40vh;
+     z-index: 2;    
+     position: absolute;
+     transform: rotate(5deg);
+     top: 35vh;
+     right: 8vw;
+}
+
+#img-voucher1{
+     background-image: url('../assets/coin.png');
+     background-size: 100% 100%;
+     width: 9.5vw;
+     height: 20vh;
+     position: absolute;
+     top: 28vh;
+     right: 9vw;
+     z-index: 2;
+}
+
+#img-voucher2{
+     background-image: url('../assets/voucher.png');
+     background-size: 100% 100%;
+     width: 7vw;
+     height: 25vh;
+     position: absolute;
+     top: 50vh;
+     right: 50vw;
+     transform: rotate(-10deg);
+     z-index: 2;
+}
+
+#user-login-container{
+     display: flex;
+     justify-content: flex-end;
+     padding: 1vw 2vw 1vw 1vw;
+     gap: 2vw;
+     align-items: center;
+     margin-top: 3vh;
+}
+
+#total-coin-container{
+     display: flex;
+     gap: 1vw;
+     align-items: center;
+}
+
+#coin{
+     background-image: url('../assets/coin.png');
+     background-size: 100% 100%;
+     width: 3.5vw;
+     height: 8vh;
+}
+
+#total-coin{
+     color: white;
+     font-size: 2vw;
+     font-family: Atma-bold;
+     text-align: end;
+}
+
+#user-detail-container{
+     display: flex;
+     flex-direction: column;
+     align-items: flex-end;
+     /* width: 10vw; */
+}
+
+#level{
+     color: white;
+     font-size: 2vw;
+     font-family: Atma-bold;
+}
+
+#profile-pict-user{
+     /* background-color: white; */
+     width: 4.5vw;
+     height: 10vh;
+     border-radius: 100%;
+}
+
+#profile-pict-user:hover{
+     cursor: pointer;
+}
+
+#profile-desc{
+     background-color: white;
+     width: 5.5vw;
+     height: 4vh;
+     font-size: 1vw;
+     border-radius: 1vw;
+     text-align: center;
+     line-height: 4vh;
+     position: absolute;
+     top: 15vh;
+     right: 1.5vw;
+}
+
+#background-boongan{
+     background-image: url('../assets/profile-background.png');
+     background-size: 100% 100%;
+     width: 100%;
+     height: 100%;
+     position: fixed;
+     z-index: 3;
+     animation: scrap 2s ease-in;
+   }
+   
+   @keyframes scrap {
+     0% {
+       top: 100vh;
+       transform: rotate(5deg);
+     }
+     20% {
+       top: 80vh;
+       transform: rotate(10deg);
+     }
+     40% {
+       top: 60vh;
+       transform: rotate(-5deg);
+     }
+     60% {
+       top: 40vh;
+       transform: rotate(5deg);
+     }
+     80% {
+       top: 20vh;
+       transform: rotate(-10deg);
+     }
+     100% {
+       top: 0;
+       transform: rotate(0deg);
+     }
+}
+
+

@@ -1,0 +1,235 @@
+@font-face {
+  font-family: "Atma";
+  src: url("../assets/Atma-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Atma-medium";
+  src: url("../assets/Atma-Medium.ttf");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Atma";
+}
+
+body {
+  background-color: #294b29;
+}
+
+#contains-container {
+  margin-top: 20vh;
+  height: 300vh;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  width: 100vw;
+}
+
+#banner-container {
+  height: 85vh;
+  width: 100vw;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 110vh;
+}
+
+#banner-container1 {
+  height: 85vh;
+  width: 100vw;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 260vh;
+}
+
+#banner-container2 {
+  height: 85vh;
+  width: 100vw;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 350vh;
+}
+
+.banner-main-container {
+  display: flex;
+  gap: 2vw;
+  padding: 9vw 4vw;
+  opacity: 0;
+  transform: translateX(100%);
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.banner-main-container1 {
+  display: flex;
+  gap: 2vw;
+  padding: 9vw 4vw;
+  opacity: 0;
+  transform: translateX(-100%);
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.banner-main-container.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.banner-main-container1.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.banner {
+  width: 28vw;
+  height: 40vh;
+  background-color: red;
+}
+
+.banner-bttn-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vh;
+}
+
+.banner-bttn-container:hover {
+  opacity: 25%;
+  cursor: pointer;
+}
+
+.line1 {
+  background-color: white;
+  width: 2vw;
+  height: 1vh;
+  transform: rotate(-45deg);
+}
+
+.line2 {
+  background-color: white;
+  width: 2vw;
+  height: 1vh;
+  transform: rotate(45deg);
+}
+
+#about-main-container {
+  display: flex;
+  justify-content: center;
+}
+
+#about-container {
+  background-image: url("../assets/bacakita-text-medium.png");
+  background-size: 100% 100%;
+  width: 70vw;
+  height: 60vh;
+  margin-top: 90vh;
+  padding: 6vw;
+}
+
+#selotip-about1 {
+  background-image: url("../assets/selotip.png");
+  background-size: 100% 100%;
+  width: 14vw;
+  height: 10vh;
+  position: absolute;
+  top: 230vh;
+  transform: rotate(95deg);
+  opacity: 50%;
+  left: 10vw;
+}
+
+#selotip-about2 {
+  background-image: url("../assets/selotip.png");
+  background-size: 100% 100%;
+  width: 14vw;
+  height: 10vh;
+  position: absolute;
+  top: 225vh;
+  transform: rotate(-92deg);
+  opacity: 50%;
+  right: 10vw;
+}
+
+#about-container h1 {
+  font-family: "Atma-medium";
+  text-align: center;
+}
+
+#tentang-kami-desc {
+  font-size: 1.5vw;
+}
+
+#book-list-container {
+  height: 80vh;
+  width: 100vw;
+  background-image: url("../assets/background-robek-1.jpg");
+  background-size: 100% 100%;
+  display: flex;
+  padding: 14vh 4vw;
+  position: relative;
+  margin-top: 10vh;
+  flex-direction: column;
+}
+
+#book-list {
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+  height: 40vh;
+}
+
+.book-home {
+  width: 10vw;
+  height: 30vh;
+  background-color: red;
+}
+
+#voucher-list-container {
+  height: 80vh;
+  width: 100vw;
+  background-image: url("../assets/background-robek-1.jpg");
+  background-size: 100% 100%;
+  display: flex;
+  padding: 14vh 4vw;
+  position: relative;
+  margin-top: 20vh;
+  flex-direction: column;
+}
+
+#voucher-list {
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+  height: 40vh;
+}
+
+.voucher-home {
+  width: 10vw;
+  height: 30vh;
+  background-color: red;
+}
+
+footer {
+  background-color: teal;
+  height: 40vh;
+  width: 100vw;
+  position: relative;
+  top: 70vh;
+}
+
+#scroll-page-1 {
+  height: 90vh;
+  width: 80vw;
+  background-image: url("../assets/Slide3.png");
+  background-size: 100% 100%;
+  position: absolute;
+  top: 105vh;
+  z-index: 1;
+}
+
+
+
+

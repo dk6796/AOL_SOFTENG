@@ -1,0 +1,48 @@
+.error-message-container{
+     background-image: url('../assets/bacakita-text.png');
+     background-size: 100% 100%;
+     width: 22vw;
+     height: 18vh;
+     position: fixed;
+     top: 5vh;
+     right: -1vw;
+     padding: 0 1vw 0 1vw;
+     font-size: 1.2vw;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     font-weight: bolder;
+     z-index: 10;
+}
+
+.slide-in{
+     animation: slideIn 1s ease-in;
+}
+
+.slide-out{
+     animation: slideOut 1s ease-out;
+}
+
+.error-message-container h4{
+     color: red;
+
+}
+
+@keyframes slideIn {
+     0% {
+          transform: translateX(100%);
+     }
+     100% {
+          transform: translateX(0%);
+     }
+}
+
+@keyframes slideOut {
+     0% {
+          transform: translateX(0%);
+     }
+     100% {
+          right: -10vw;
+          transform: translateX(100%);
+     }
+}

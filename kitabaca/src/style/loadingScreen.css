@@ -1,0 +1,34 @@
+#loading-main-container{
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.4);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     z-index: 30;
+}
+
+#loading-main-container-1{
+     width: 30vw;
+     height: 50vh;
+     display: flex;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     z-index: 30;
+}
+
+#loading-main-container-1 h1{
+     color: white;
+}
+
+#book-loading{
+     background-image: url('../assets/loading-book.gif');
+     background-size: 100% 100%;
+     width: 20vw;
+     height: 40vh;
+}

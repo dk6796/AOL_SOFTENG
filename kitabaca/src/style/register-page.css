@@ -1,0 +1,247 @@
+@font-face {
+     font-family: 'Atma-medium';
+     src: url('../assets/Atma-Medium.ttf');
+}
+
+@font-face {
+     font-family: 'Atma-regular';
+     src: url('../assets/Atma-Regular.ttf');
+}
+
+@font-face {
+     font-family: 'Atma-semibold';
+     src: url('../assets/Atma-SemiBold.ttf');
+}
+
+@font-face {
+     font-family: 'Atma-bold';
+     src: url('../assets/Atma-Bold.ttf');
+}
+
+#register-page-main-container{
+     display: flex;
+     flex-direction: column;
+     align-items: flex-start;
+     margin-left: 22vw;
+     justify-content: center;
+     height: 100vh;
+}
+
+#selotip-div1{
+     background-image: url('../assets/selotip.png');
+     background-size: 100% 100%;
+     width: 15vw;
+     height: 12vh;
+     position: absolute;
+     top: 40vh;
+     right: 16vw;
+     opacity: 50%;
+     transform: rotate(-92deg);
+}
+
+#selotip-div2{
+     background-image: url('../assets/selotip.png');
+     background-size: 100% 100%;
+     width: 15vw;
+     height: 12vh;
+     position: absolute;
+     top: 56vh;
+     left: 15vw;
+     opacity: 50%;
+     transform: rotate(93deg);
+}
+
+#register-page-container{
+     background-image: url('../assets/bacakita-text-lebar.png');
+     background-size: 100% 100%;
+     width: 55vw;
+     height: 92vh;
+     display: flex;
+     flex-direction: column;
+     padding: 4vw 5vw 0 5vw;
+}
+
+#register-page-container h1{
+     font-family: 'Atma-semibold';
+}
+
+#register-form{
+     display: flex;
+     flex-direction: column;
+     gap: 2vh;
+     /* overflow: auto; */
+     margin-bottom: 4vw;
+}
+
+.form-container{
+     display: flex;
+     justify-content: space-between;
+     gap: 1vw;
+}
+
+
+#register-form label{
+     font-family: 'Atma-semibold';
+}
+
+.inputted{
+     font-family: 'Atma-medium';
+     padding: 0 1vw;
+     height: 7vh;
+     border-radius: 0.5vw;
+     border: none;
+     font-size: 1.2vw;
+}
+
+#passr, #confirm{
+     width: 22vw;
+}
+
+#dob{
+     width: 12vw;
+}
+
+#emailr{
+     width: 32vw;
+}
+
+.form-detail-container{
+     display: flex;
+     flex-direction: column;
+     gap: 1vh;
+     width: 100%;
+}
+
+.form-detail-container2{
+     display: flex;
+     flex-direction: column;
+     gap: 1vh;
+     width: 100%;
+     /* background-color: red; */
+}
+
+#form-container2{
+     display: flex;
+     gap: 1vh;
+}
+
+#img-profile{
+     /* background-color: red; */
+     width: 5.5vw;
+     height: 9.5vh;
+     border-radius: 100%;
+}
+
+#img-container{
+     display: flex;
+     gap: 1vw;
+}
+
+.error-line{
+     color: red;
+     font-family: 'Atma-semibold';
+     text-align: center;
+}
+
+#register-form-bttn{
+     background-color: #F3B664;
+     height: 6vh;
+     color: white;
+     font-size: 1.3vw;
+     text-align: center;
+     line-height: 6vh;
+     border-radius: 0.5vw;
+     font-family: 'Atma-semibold';
+     border: none;
+     /* margin-top: 1vh; */
+}
+
+#register-form-bttn:hover{
+     cursor: pointer;
+     color: #F3B664;
+     background-color: white;
+}
+
+::-webkit-scrollbar {
+     width: 0;
+}
+
+#to-login-container{
+     display: flex;
+     gap: 0.5vw;
+     justify-content: center;
+}
+
+#login-link{
+     text-decoration: none;
+     color: black;
+     font-family: 'Atma-semibold';
+}
+
+#login-link:hover{
+     cursor: pointer;
+     color: white;
+}
+
+#register-dolphin-img{
+     background-image: url('../assets/dolphin-2.png');
+     background-size: 100% 100%;
+     width: 25vw;
+     height: 80vh;
+     position: absolute;
+     right: 8vw;
+}
+
+#scrapbook-5{
+     background-image: url('../assets/scrapbook5.png');
+     background-size: 100% 100%;
+     width: 30vw;
+     height: 60vh;
+     position: fixed;
+     bottom: 0vw;
+     right: 0;
+}
+
+#scrapbook-1{
+     background-image: url('../assets/scrapbook6.png');
+     background-size: 100% 100%;
+     width: 30vw;
+     height: 60vh;
+     position: fixed;
+     bottom: -10vh;
+     right: 0;
+     transform: rotate(180deg);
+}
+
+#scrapbook-2{
+     background-image: url('../assets/scrapbook7.png');
+     background-size: 100% 100%;
+     width: 30vw;
+     height: 60vh;
+     position: fixed;
+     top: -5vh;
+     left: -10vw;
+     transform: rotate(100deg);
+}
+
+#scrapbook-3{
+     background-image: url('../assets/scrapbook10.png');
+     background-size: 100% 100%;
+     width: 30vw;
+     height: 70vh;
+     position: fixed;
+     top: 0vh;
+     right: -10vw;
+     z-index: -1;
+}
+
+#scrapbook-4{
+     background-image: url('../assets/scrapbook9.png');
+     background-size: 100% 100%;
+     width: 30vw;
+     height: 70vh;
+     position: fixed;
+     bottom: -10vh;
+     left: -5vw;
+     z-index: -1;
+}
