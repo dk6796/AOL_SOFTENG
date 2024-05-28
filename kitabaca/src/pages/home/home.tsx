@@ -9,7 +9,7 @@ export default function HomePage(){
 
      const [imageName, setImageName] = useState<string>('');
      const [imageName1, setImageName1] = useState<string>('');
-     const [imageName2, setImageName2] = useState<string>('');
+     const [imageName2, setImageName2] = useState<string>(''); 
 
      const bannerImages = [
           'Slide1.jpg',

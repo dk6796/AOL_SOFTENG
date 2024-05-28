@@ -2,7 +2,7 @@
   background-image: url("../assets/profile-background.png");
   background-size: 100% 100%;
   display: flex;
-  gap: 3vw;
+  /* gap: 3vw; */
   width: 100vw;
   height: 100vh;
   justify-content: center;
@@ -10,10 +10,6 @@
   align-items: center;
 }
 
-.read-document {
-  width: 20vw;
-  height: 50vh;
-}
 
 .read-document-container {
   width: 100vw;

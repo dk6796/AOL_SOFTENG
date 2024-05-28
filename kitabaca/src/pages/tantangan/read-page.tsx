@@ -10,7 +10,6 @@ import { IBook } from '../../interfaces/bookInterface';
 import { IError } from "../../interfaces/errorInterface";
 import ErrorMessage from "../../components/errorMessage";
 
-
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 export default function ReadPage() {
@@ -33,16 +32,16 @@ export default function ReadPage() {
     setNumPages(numPages);
   };
 
-  useEffect(() => {
-    if (!checkUser()) {
-         navigate("/TantanganPage");
-         const err: IError = {
-              ErrorMessage: "Anda belum login !",
-              ErrorType: "Authentication",
-         }
-         errorMessageHandler(err);
-    }
-  }, [checkUser]);
+  // useEffect(() => {
+  //   if (!checkUser()) {
+  //        navigate("/TantanganPage");
+  //        const err: IError = {
+  //             ErrorMessage: "Anda belum login !",
+  //             ErrorType: "Authentication",
+  //        }
+  //        errorMessageHandler(err);
+  //   }
+  // }, [checkUser]);
 
   const goToPrevPage = () => setPageNumber(pageNumber - 2);
   const goToNextPage = () => setPageNumber(pageNumber + 2);
@@ -136,9 +135,9 @@ export default function ReadPage() {
             )}
             <Document file={fileURL} onLoadSuccess={onDocumentLoadSuccess} className="read-document-container">
               {pageNumber-1 > 0 && (
-                <Page pageNumber={pageNumber-1} className="read-document"  width={400} height={1000} />
+                <Page pageNumber={pageNumber-1} className="read-document"  height={window.innerHeight} />
               )}
-              <Page pageNumber={pageNumber} className="read-document" height={100} />
+              <Page pageNumber={pageNumber} className="read-document" height={window.innerHeight} />
             </Document>
             {pageNumber >= numPages-1 && (
               <div id="right-bttn-1"></div>

@@ -103,26 +103,27 @@ export default function QuizPage(){
           }, 400);
      }
 
-     const getQuestionList = async () => {
+     const getQuestionList = async (): Promise<IQuestion[]> => {
           const response = await readQuestion();
-          setQuestionList(response);
-          if(checkStatus < 2){
-               checkStatus += 1;
-          }
+          return response;
      }
 
-     const getOptionList = async () => {
+     const getOptionList = async (): Promise<IOption[]> => {
           const response = await readOption();
-          setOptionList(response);
+          return response;
      }
 
-     const getQuestionFilter = () => {
-          const filter = questionList.filter(q => q.BookID == bookID);
+     const getQuestionFilter = async () => {
+          const list = await getQuestionList();
+          const choice = await getOptionList();
+          const filter = list.filter(q => q.BookID == bookID);
+          setQuestionList(list);
+          setOptionList(choice);
           setFilterQuestionList(filter);
      }
 
      const getOptionFilter = () => {
-          const filter = optionList.filter(o => o.QuestionID == questionList[number-1].QuestionID);
+          const filter = optionList.filter(o => o.QuestionID == filterQuestionList[number-1].QuestionID);
           setFilterOptionList(filter);
      }
 
@@ -165,20 +166,20 @@ export default function QuizPage(){
                     openResult();
                }
           }, 3000);
-          console.log(result);
+          // console.log(result);
           
      }
 
      useEffect(() => {
-          fetchData();
-     }, [number]);
+          getQuestionFilter();
+     }, []);
 
      useEffect(() => {
           if (questionList.length !== 0 && optionList.length !== 0) {
                getQuestionFilter();
                getOptionFilter();
           }
-     }, [questionList, optionList]);
+     }, [number, questionList, optionList]);
      
      const stopTimer = () => {
           if (timerRef.current) {
