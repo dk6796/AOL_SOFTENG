@@ -176,8 +176,6 @@ export default function HomePage(){
                   <div id="banner-container1" style={{ backgroundImage: `url('/src/assets/${imageName1}')` }}>
                         
                   </div>
-                  <div id="banner-container2" style={{ backgroundImage: `url('/src/assets/${imageName2}')` }}>
-                  </div>
               </div>
               <footer>
                      

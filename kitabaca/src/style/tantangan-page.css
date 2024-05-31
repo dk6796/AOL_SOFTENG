@@ -18,13 +18,18 @@
      display: flex;
      flex-direction: column;
      align-items: center;
-     padding: 6vw;
+     padding: 5vw;
      text-align: center;
      gap: 1vh;
 }
 
+#desc-petunjuk{
+     font-size: 1.4vw;
+}
+
 #frame-petunjuk h1{
      font-family: Atma-semibold;
+     font-size: 2vw;
 }
 
 .level-container{

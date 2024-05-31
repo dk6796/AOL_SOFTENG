@@ -289,6 +289,7 @@ export default function QuizPage(){
                               <div className="result-quiz-container-1">
                                    <div id="result-img" style={{backgroundImage: `url('/src/assets/wrong.gif')`}}></div>
                                    <div id="result-desc">{result}</div>
+                                   <div></div>
                               </div>
                          )}
                          {result == "Waktu Habis" && (
