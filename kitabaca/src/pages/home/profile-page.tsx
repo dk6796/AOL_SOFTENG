@@ -16,7 +16,7 @@ export default function ProfilePage(){
      const userContext = useUser();
 
      const { bookUpload, readBook, addQuestion, addOption, readQuestion, readOption } = bookContext
-     const { user, logout, errorMessageHandler } = userContext;
+     const { user, fetchUser, logout, errorMessageHandler } = userContext;
 
      const [menuAdmin, setMenuAdmin] = useState<string>("book");
      const [image, setImage] = useState<File | null>(null);
@@ -245,6 +245,7 @@ export default function ProfilePage(){
           getBookList();
           getQuestionList();
           getOptionList();
+          fetchUser();
      }, []);
 
      return (
@@ -252,7 +253,7 @@ export default function ProfilePage(){
                <div id="bttn-close-profile" onClick={back}></div>
                <ErrorMessage/>
                {user?.Role == "Admin" && (
-                    <div id="book-bttn" onClick={setToBook}>Book</div>
+                    <div id="book-bttn" onClick={setToBook}>Buku</div>
                )}
                {user?.Role == "Admin" && (
                     <div id="voucher-bttn" onClick={setToVoucher}>Voucher</div>
@@ -324,7 +325,7 @@ export default function ProfilePage(){
                                         </div>
                                    )}
                               </div>
-                              <label htmlFor="filePDF">Book File</label>
+                              <label htmlFor="filePDF">File Buku</label>
                               <input type="file" name="filePDF" id="filePDF" onChange={handleFileChange}/>
                               <label htmlFor="synopsis">Sinopsis</label>
                               <textarea name="synopsis" id="synopsis"></textarea>
@@ -350,16 +351,16 @@ export default function ProfilePage(){
                                         <div>{idx+1} .</div>
                                         <img src={b.CoverBook} alt="" id="cover-book-img"/>
                                         <div id="book-show-description">
-                                             <div>Title : {b.Title}</div>
-                                             <div>Author : {b.Author}</div>
-                                             <div>Category : {b.Category}</div>
+                                             <div>Judul : {b.Title}</div>
+                                             <div>Penulis : {b.Author}</div>
+                                             <div>Kategori : {b.Category}</div>
                                              <div>Genre : {b.Genre}</div>
                                              <div>Level : {b.Level}</div>
                                              <div></div>
                                         </div>
                                         <div id="edit-bttn-container">
                                              <h3 id="edit-book-bttn">Edit</h3>
-                                             <h3 id="delete-book-bttn">Delete</h3>
+                                             <h3 id="delete-book-bttn">Hapus</h3>
                                         </div>
                                    </div>
                               ))}
