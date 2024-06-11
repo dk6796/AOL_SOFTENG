@@ -126,7 +126,7 @@ export default function ReadPage() {
       {fileURL && (
         <div id="read-book-container">
            <ErrorMessage/>
-            <div id="page-info">{pageNumber} of {numPages}</div>
+            <div id="page-info">{pageNumber} dari {numPages}</div>
             {pageNumber > 1 && (
               <div id="left-bttn" onClick={goToPrevPage}></div>
             )}
@@ -145,9 +145,9 @@ export default function ReadPage() {
             {pageNumber < numPages-1 && (
               <div id="right-bttn" onClick={goToNextPage}></div>
             )}
-            <div id="read-back-bttn" onClick={openConfirmation}>Back</div>
+            <div id="read-back-bttn" onClick={openConfirmation}>Kembali</div>
             {pageNumber >= numPages-1 && (
-              <div id="read-done-bttn" onClick={openNext}>Done</div>
+              <div id="read-done-bttn" onClick={openNext}>Selesai</div>
             )}
             {confirmation && (
               <div id="confirmation-container-background">

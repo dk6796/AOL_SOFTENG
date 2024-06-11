@@ -432,10 +432,10 @@ export default function TantanganPage(){
                                              </div>
                                         </div>
                                         <div id="sinopsis-container">
-                                             <h3>Title : {bookList[idx].Title} </h3>
-                                             <h3>Author : {bookList[idx].Author} </h3>
+                                             <h3>Judul : {bookList[idx].Title} </h3>
+                                             <h3>Penulis : {bookList[idx].Author} </h3>
                                              <h3>Genre : {bookList[idx].Genre} </h3>
-                                             <h3>Total page : {bookList[idx].TotalPage} </h3>
+                                             <h3>Total halaman : {bookList[idx].TotalPage} </h3>
                                              <h3>Sinopsis :</h3>
                                              <div>{bookList[idx].Synopsis}</div>
                                         </div>
