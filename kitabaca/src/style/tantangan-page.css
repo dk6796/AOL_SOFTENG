@@ -85,6 +85,35 @@
      background-image: url('../assets/play-bttn-clicked-1.png');
 }
 
+.trophy{
+     background-image: url('../assets/trophy.png');
+     background-size: 100% 100%;
+     width: 20vw;
+     height: 40vh;
+     position: relative;
+     left: 19vw;
+     bottom: 4vh;
+}
+
+.trophy:hover{
+     cursor: pointer;
+}
+
+.trophy-left{
+     background-image: url('../assets/trophy.png');
+     background-size: 100% 100%;
+     width: 20vw;
+     height: 40vh;
+     position: relative;
+     bottom: 4vh;
+     right: 20vw;
+}
+
+.trophy-left:hover{
+     cursor: pointer;
+}
+
+
 .detail-container{
      position: fixed;
      top: 0;

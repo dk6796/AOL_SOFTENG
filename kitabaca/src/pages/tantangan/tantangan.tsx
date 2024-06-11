@@ -36,8 +36,12 @@ export default function TantanganPage(){
      const userContext = useUser();
 
      const { getBookByLevel, getBookByID } = bookContext;
-     const { user, updateCategory, getHistoryBookByID, getQuizResultByID } = userContext;
+     const { user, fetchUser, updateCategory, getHistoryBookByID, getQuizResultByID } = userContext;
 
+     useEffect(() => {
+          fetchUser();
+     }, []);
+     
      const getHistoryBookList = async () => {
           const response = await getHistoryBookByID(user?.UserID ?? 0); 
           setBookHistoryList(response);
@@ -107,6 +111,15 @@ export default function TantanganPage(){
                }, 2000);
           } else {
                setLoading(false); 
+          }
+     }
+
+     const checkDone = (level: number) => {
+          if(bookHistoryList.length != 0){
+               const res = checkProgress(level);
+               if(res != null){
+                    return true;
+               }
           }
      }
 
@@ -288,13 +301,13 @@ export default function TantanganPage(){
                     <div className="level-container">
                          <div className="level" style={{backgroundImage: `url('/src/assets/level1.jpg')`}}></div>
                          <div className="bookshelf">
-                              <div className="play-bttn" onClick={() => handleLevel(1)}></div>
+                              <div className={1 < (user?.Level ?? 0) ? (1 % 2 != 0 ? 'trophy' : 'trophy-left') : 'play-bttn'} onClick={() => handleLevel(1)}></div>
                          </div>
                     </div>
                     <div className="level-container">
                          <div className={checkLevel(2)}>
                               {checkLevel(2) == 'bookshelf' && (
-                                   <div className="play-bttn" onClick={() => handleLevel(2)}></div>
+                                   <div className={2 < (user?.Level ?? 0) ? 2 % 2 != 0 ? 'trophy' : 'trophy-left' : 'play-bttn'} onClick={() => handleLevel(2)}></div>
                               )}
                          </div>
                          <div className="level" style={{backgroundImage: `url('/src/assets/level2.jpg')`}}></div>
@@ -303,14 +316,14 @@ export default function TantanganPage(){
                          <div className="level" style={{backgroundImage: `url('/src/assets/level3.jpg')`}}></div>
                          <div className={checkLevel(3)}>
                               {checkLevel(3) == 'bookshelf' && (
-                                   <div className="play-bttn" onClick={() => handleLevel(3)}></div>
+                                   <div className={3 < (user?.Level ?? 0) ? (3 % 2 != 0 ? 'trophy' : 'trophy-left') : 'play-bttn'} onClick={() => handleLevel(3)}></div>
                               )}
                          </div>
                     </div>
                     <div className="level-container">
                          <div className={checkLevel(4)}>
                               {checkLevel(4) == 'bookshelf' && (
-                                   <div className="play-bttn" onClick={() => handleLevel(4)}></div>
+                                   <div className={4 < (user?.Level ?? 0) ? (4 % 2 != 0 ? 'trophy' : 'trophy-left') : 'play-bttn'} onClick={() => handleLevel(4)}></div>
                               )}
                          </div>
                          <div className="level" style={{backgroundImage: `url('/src/assets/level4.jpg')`}}></div>
@@ -319,14 +332,14 @@ export default function TantanganPage(){
                          <div className="level" style={{backgroundImage: `url('/src/assets/level5.jpg')`}}></div>
                          <div className={checkLevel(5)}>
                               {checkLevel(5) == 'bookshelf' && (
-                                   <div className="play-bttn" onClick={() => handleLevel(5)}></div>
+                                   <div className={5 < (user?.Level ?? 0) ? (5 % 2 != 0 ? 'trophy' : 'trophy-left') : 'play-bttn'} onClick={() => handleLevel(5)}></div>
                               )}
                          </div>
                     </div>
                     <div className="level-container">
                          <div className={checkLevel(6)}>
                               {checkLevel(6) == 'bookshelf' && (
-                                   <div className="play-bttn" onClick={() => handleLevel(6)}></div>
+                                   <div className={6 < (user?.Level ?? 0) ? (6 % 2 != 0 ? 'trophy' : 'trophy-left') : 'play-bttn'} onClick={() => handleLevel(6)}></div>
                               )}
                          </div>
                          <div className="level" style={{backgroundImage: `url('/src/assets/level6.jpg')`}}></div>
@@ -335,14 +348,14 @@ export default function TantanganPage(){
                          <div className="level" style={{backgroundImage: `url('/src/assets/level7.jpg')`}}></div>
                          <div className={checkLevel(7)}>
                               {checkLevel(7) == 'bookshelf' && (
-                                   <div className="play-bttn" onClick={() => handleLevel(7)}></div>
+                                   <div className={7 < (user?.Level ?? 0) ? (7 % 2 != 0 ? 'trophy' : 'trophy-left') : 'play-bttn'} onClick={() => handleLevel(7)}></div>
                               )}
                          </div>
                     </div>
                     <div className="level-container">
                          <div className={checkLevel(8)}>
                               {checkLevel(8) == 'bookshelf' && (
-                                   <div className="play-bttn" onClick={() => handleLevel(8)}></div>
+                                   <div className={8 < (user?.Level ?? 0) ? (8 % 2 != 0 ? 'trophy' : 'trophy-left') : 'play-bttn'} onClick={() => handleLevel(8)}></div>
                               )}
                          </div>
                          <div className="level" style={{backgroundImage: `url('/src/assets/level8.jpg')`}}></div>
@@ -351,14 +364,14 @@ export default function TantanganPage(){
                          <div className="level" style={{backgroundImage: `url('/src/assets/level9.jpg')`}}></div>
                          <div className={checkLevel(9)}>
                               {checkLevel(9) == 'bookshelf' && (
-                                   <div className="play-bttn" onClick={() => handleLevel(9)}></div>
+                                   <div className={9 < (user?.Level ?? 0) ? (9 % 2 != 0 ? 'trophy' : 'trophy-left') : 'play-bttn'} onClick={() => handleLevel(9)}></div>
                               )}
                          </div>
                     </div>
                     <div className="level-container">
                          <div className={checkLevel(10)}>
                               {checkLevel(10) == 'bookshelf' && (
-                                   <div className="play-bttn" onClick={() => handleLevel(10)}></div>
+                                   <div className={10 < (user?.Level ?? 0) ? (10 % 2 != 0 ? 'trophy' : 'trophy-left') : 'play-bttn'} onClick={() => handleLevel(10)}></div>
                               )}
                          </div>
                          <div className="level" style={{backgroundImage: `url('/src/assets/level10.jpg')`}}></div>
