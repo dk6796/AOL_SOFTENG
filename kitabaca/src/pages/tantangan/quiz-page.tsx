@@ -79,8 +79,8 @@ export default function QuizPage(){
           return true;
      }
 
-     const quizDone = () => {
-          if(updateLevelToDB() && updateCoinToDB()){
+     const quizDone = async () => {
+          if(await updateLevelToDB() && await updateCoinToDB()){
                navigate("/TantanganPage");
           }
      }
