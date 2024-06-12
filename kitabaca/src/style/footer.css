@@ -1,0 +1,9 @@
+#footer-container{
+     background-image: url('../assets/footer.png');
+     background-size: 100% 100%;
+     width: 80vw;
+     height: 50vh;
+     position: relative;
+     margin-top: 10vh;
+     top: 10vh;
+}

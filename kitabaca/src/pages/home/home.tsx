@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import {UserProvider} from '../../context/userContext'
 import { BookProvider } from '../../context/bookContext';
 import ErrorMessage from '../../components/errorMessage';
+import Footer from '../../components/footer';
 
 export default function HomePage(){
 
@@ -177,9 +178,7 @@ export default function HomePage(){
                         
                   </div>
               </div>
-              <footer>
-                     
-               </footer>
+              {/* <Footer/> */}
           </div>
      )
 }
