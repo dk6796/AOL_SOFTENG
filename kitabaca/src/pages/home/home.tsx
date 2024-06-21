@@ -153,7 +153,7 @@ export default function HomePage(){
 
      return (
           <div id="main-container">
-             <ErrorMessage/>
+             {/* <ErrorMessage/> */}
               <UserProvider>
                   <BookProvider>
                      <NavBar menu="home"/>

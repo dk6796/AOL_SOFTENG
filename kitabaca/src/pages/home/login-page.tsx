@@ -65,7 +65,7 @@ export default function LoginPage(){
 
      return (
           <div id="login-page-main-container">
-               <ErrorMessage/>
+               {/* <ErrorMessage/> */}
 
                <div id="selotip-div"></div>
                <div id="login-page-container">

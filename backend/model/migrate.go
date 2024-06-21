@@ -11,6 +11,8 @@ func Migrate(db *gorm.DB){
 	// db.Migrator().DropTable(&Question{})
 	// db.Migrator().DropTable(&BookHistory{})
 	// db.Migrator().DropTable(&QuizResult{})
+	// db.Migrator().DropTable(&ExchangeVoucher{})
+	// db.Migrator().DropTable(&Voucher{})
 
 	// db.AutoMigrate(&User{})
 	// db.AutoMigrate(&Book{})

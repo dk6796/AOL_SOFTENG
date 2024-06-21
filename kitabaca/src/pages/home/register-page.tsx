@@ -101,7 +101,7 @@ export default function RegisterPage(){
           <div id="register-page-main-container">
                <div id="selotip-div1"></div>
                <div id="selotip-div2"></div>
-               <ErrorMessage/>
+               {/* <ErrorMessage/> */}
                {/* <div id="scrapbook-5"></div> */}
                <div id="scrapbook-1"></div>
                <div id="scrapbook-2"></div>

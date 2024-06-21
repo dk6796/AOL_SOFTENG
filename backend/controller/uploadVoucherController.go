@@ -5,11 +5,19 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/dk6796/backend/database"
 	"github.com/dk6796/backend/model"
+	"fmt"
 )
 
-func AddVoucherController(c *gin.Context){
+func UploadVoucherController(c *gin.Context){
 	
-	var body model.Voucher
+	var body struct {
+		VoucherName 	string
+		VoucherCost	uint
+		VoucherDesc	string
+		VoucherType  	string
+		VoucherImage	string
+		VoucherStock	uint
+	}
 
 	if err := c.ShouldBindJSON(&body); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
@@ -30,7 +38,7 @@ func AddVoucherController(c *gin.Context){
 		VoucherImage: body.VoucherImage,
 		VoucherStock: body.VoucherStock,
 	}
-	
+	fmt.Println("VOUCHER: ", voucher)
 	db.Create(&voucher)
 
 	c.JSON(http.StatusOK, gin.H{

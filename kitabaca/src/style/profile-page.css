@@ -26,14 +26,26 @@
      top: 7vh;
 }
 
+#bttn-close-voucher-detail{
+     background-image: url('../assets/x-bttn.png');
+     background-size: 100% 100%;
+     width: 2.5vw;
+     height: 6.5vh;
+     position: relative;
+     left: 12vw;
+     top: 7vh;
+}
+
 #bttn-close-profile:hover,
-#bttn-close-book-detail:hover{
+#bttn-close-book-detail:hover,
+#bttn-close-voucher-detail:hover{
      cursor: pointer;
      background-image: url('../assets/x-bttn-hover.png');
 }
 
 #bttn-close-profile:active,
-#bttn-close-book-detail:active{
+#bttn-close-book-detail:active,
+#bttn-close-voucher-detail:active{
      background-image: url('../assets/x-bttn-clicked.png');
 }
 
@@ -146,7 +158,7 @@
      justify-content: space-between;
 }
 
-#author, #publisher{
+#author, #publisher, #voucherCost, #voucherStock{
      width: 14vw;
 }
 
@@ -221,8 +233,8 @@
 
 #voucherImgPhoto{
      background-color: white;
-     width: 22vw;
-     height: 19vh;
+     width: 16vw;
+     height: 14vh;
      /* position: fixed;
      bottom: 15vh;
      right: 19vw; */
@@ -238,6 +250,16 @@
      /* overflow: scroll; */
 }
 
+#list-voucher-container{
+     /* background-color: red; */
+     width: 30vw;
+     height: 73vh;
+     position: fixed;
+     top: 12vh;
+     right: 19vw;
+     /* overflow: scroll; */
+}
+
 #list-book-container-2{
      /* background-color: red; */
      width: 30vw;
@@ -246,6 +268,15 @@
      top: 19vh;
      left: 19vw;
      overflow: scroll;
+}
+
+#list-voucher-container-2{
+     /* background-color: red; */
+     width: 30vw;
+     height: 65vh;
+     position: fixed;
+     top: 19vh;
+     right: 19vw;
      overflow: scroll;
 }
 
@@ -309,10 +340,30 @@
      align-items: center;
 }
 
+.voucher-detail-container{
+     background-image: url('../assets/small-board.png');
+     background-size: 100% 100%;
+     width: 35vw;
+     height: 60vh;
+     animation: moveUp 0.5s ease-in;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+
 #book-detail-information{
      display: flex;
      flex-direction: column;
      width: 32vw;
+     overflow: scroll;
+     height: 60vh;
+     margin-left: 1vw;
+}
+
+#voucher-detail-information{
+     display: flex;
+     flex-direction: column;
+     width: 25vw;
      overflow: scroll;
      height: 60vh;
      margin-left: 1vw;

@@ -44,6 +44,9 @@ export default function ProfilePage(){
      const [optionList, setOptionList] = useState<IOption[]>([]);
 
      const [voucherList, setVoucherList] = useState<IVoucher[]>([]);
+     const [voucherDetail, setVoucherDetail] = useState<IVoucher>();
+     const [isOpenVoucherDetail, setIsOpenVoucherDetail] = useState<boolean>(false);
+     const [voucherDetailAnimation, setVoucherDetailAnimation] = useState<string>("");
 
      const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
           if (e.target.files) {
@@ -56,11 +59,24 @@ export default function ProfilePage(){
           setBookDetail(book);
      }
 
+     const openVoucherDetail = (voucher: IVoucher) => {
+          setIsOpenVoucherDetail(true);
+          setVoucherDetail(voucher);
+     }
+
      const closeBookDetail = () => {
           setBookDetailAnimation("down");
           setTimeout(() => {
                setBookDetailAnimation("up");
                setIsOpenBookDetail(false); 
+          }, 400); 
+     }
+
+     const closeVoucherDetail = () => {
+          setVoucherDetailAnimation("down");
+          setTimeout(() => {
+               setVoucherDetailAnimation("up");
+               setIsOpenVoucherDetail(false); 
           }, 400); 
      }
 
@@ -131,9 +147,9 @@ export default function ProfilePage(){
      }
 
      const saveImgToStorage = async (formData: IVoucher) => {
-          const storageRef = ref(storage, `voucher/${image?.name}_${formData.VoucherName}`);
-          if(image){
-               await uploadBytes(storageRef, image);
+          const storageRef = ref(storage, `voucher/${voucher?.name}_${formData.VoucherName}`);
+          if(voucher){
+               await uploadBytes(storageRef, voucher);
                const downloadURL = await getDownloadURL(storageRef);
                console.log("url: "+downloadURL);
                formData.VoucherImage = downloadURL;
@@ -176,6 +192,30 @@ export default function ProfilePage(){
           
      }
 
+     const saveVoucherToDB = async (formData: IVoucher) => {
+          await saveImgToStorage(formData);
+          if(formData.VoucherImage != ""){
+               console.log("IMG: "+formData.VoucherImage);
+               const response = await voucherUpload(formData);
+               if(response != "Successfully"){
+                    const err: IError = {
+                         ErrorMessage: response,
+                         ErrorType: "Error",
+                    }
+                    errorMessageHandler(err);
+               }
+               else{
+                    const err: IError = {
+                         ErrorMessage: "",
+                         ErrorType: "",
+                    }
+                    errorMessageHandler(err);
+                    getVoucherList();
+               }
+          }
+          
+     }
+
      const handleUploadBook = (e: React.FormEvent<HTMLFormElement>) => {
           e.preventDefault();
 
@@ -195,6 +235,21 @@ export default function ProfilePage(){
                }
                saveToDB(formData);
           }
+     }
+
+     const handleUploadVoucher = (e: React.FormEvent<HTMLFormElement>) => {
+          e.preventDefault();
+
+          const {voucherName, voucherCost, voucherStock, voucherDesc, voucherType} = e.currentTarget;
+          const formData: IVoucher = {
+               VoucherName: voucherName.value,
+               VoucherCost: parseInt(voucherCost.value),
+               VoucherDesc: voucherDesc.value,
+               VoucherType: voucherType.value,
+               VoucherStock: parseInt(voucherStock.value),
+               VoucherImage: "",
+          }
+          saveVoucherToDB(formData);
      }
 
      const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -285,7 +340,7 @@ export default function ProfilePage(){
      return (
           <div id="profile-page-container">
                <div id="bttn-close-profile" onClick={back}></div>
-               <ErrorMessage/>
+               {/* <ErrorMessage/> */}
                {user?.Role == "Admin" && (
                     <div id="book-bttn" onClick={setToBook}>Buku</div>
                )}
@@ -378,7 +433,7 @@ export default function ProfilePage(){
                )}
                {user?.Role == "Admin" && menuAdmin == "book" && (
                     <div id="list-book-container">
-                         <h2>List of Book</h2>
+                         <h2>Daftar Buku</h2>
                          <div id="list-book-container-2">
                               {bookList.map((b, idx) => (
                                    <div id="book-show-container" onClick={() => openBookDetail(b)}>
@@ -403,7 +458,7 @@ export default function ProfilePage(){
                )}
                {user?.Role == "Admin" && menuAdmin == "voucher" && (
                     <div id="set-voucher-container">
-                         <form action="" id="book-form-container" onSubmit={handleUploadBook}>
+                         <form action="" id="book-form-container" onSubmit={handleUploadVoucher}>
                               <label htmlFor="voucherName">Nama Voucher</label>
                               <input type="text" name="voucherName" id="voucherName" />
                               <div className="book-component-container-1">
@@ -439,6 +494,34 @@ export default function ProfilePage(){
                               </div>
                               <button type="submit" id="voucher-submit">Submit</button>
                          </form>
+                    </div>
+               )}
+               {user?.Role == "Admin" && menuAdmin == "voucher" && (
+                    <div id="list-voucher-container">
+                         <h2>Daftar Voucher</h2>
+                         <div id="list-voucher-container-2">
+                              {voucherList.map((v, idx) => (
+                                   <div id="book-show-container" onClick={() => openVoucherDetail(v)}>
+                                        <div>{idx+1} .</div>
+                                        <img src={v.VoucherImage} alt="" id="cover-voucher-img"/>
+                                   </div>
+                              ))}
+                         </div>
+                    </div>
+               )}
+               {isOpenVoucherDetail && (
+                    <div id="book-detail-background">
+                         <div className={`voucher-detail-container ${voucherDetailAnimation}`}>
+                              <div id="bttn-close-voucher-detail" onClick={closeVoucherDetail}></div>
+                              <h2>{voucherDetail?.VoucherName}</h2>
+                              <div id="voucher-detail-information">
+                                   <div><b>Tipe :</b> {voucherDetail?.VoucherType}</div>
+                                   <div><b>Biaya Penukaran :</b> {voucherDetail?.VoucherCost}</div>
+                                   <div><b>Stok :</b> {voucherDetail?.VoucherStock}</div>
+                                   <div><b>Deskripsi :</b> </div>
+                                   <div>{voucherDetail?.VoucherDesc}</div>
+                              </div>
+                         </div>
                     </div>
                )}
                {isOpenBookDetail && (

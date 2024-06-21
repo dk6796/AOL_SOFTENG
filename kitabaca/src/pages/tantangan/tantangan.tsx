@@ -285,7 +285,7 @@ export default function TantanganPage(){
                {loading && (
                     <LoadingScreen/>
                )}
-               <ErrorMessage/>
+               {/* <ErrorMessage/> */}
                <div id="frame-petunjuk">
                     <h1>Petunjuk Permainan</h1>
                     <div id="desc-petunjuk">

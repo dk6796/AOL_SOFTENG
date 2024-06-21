@@ -73,7 +73,7 @@ func main(){
 		readData.GetUser(db, c)
 	})
 
-	router.POST("/addVoucher",controller.AddVoucherController)
+	router.POST("/addVoucher",controller.UploadVoucherController)
 	router.GET("/getVoucher", func(c *gin.Context){
 		readData.GetVoucher(db, c)
 	})

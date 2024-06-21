@@ -16,6 +16,8 @@ const context = createContext<IVoucherContext>({} as IVoucherContext)
 export function VoucherProvider({ children }: IChildren) {
 
      const voucherUpload = async (voucher: IVoucher) => {
+       console.log("VOUCHER: ", voucher);
+       
           try {
             const response = await axios.post(
               import.meta.env.VITE_APP_BACKEND_URL + "/addVoucher",

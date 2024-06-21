@@ -7,3 +7,4 @@ export interface IVoucher{
 	VoucherImage?: string;
 	VoucherStock?: number;
 }
+

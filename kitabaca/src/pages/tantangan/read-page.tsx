@@ -125,7 +125,7 @@ export default function ReadPage() {
       )}
       {fileURL && (
         <div id="read-book-container">
-           <ErrorMessage/>
+           {/* <ErrorMessage/> */}
             <div id="page-info">{pageNumber} dari {numPages}</div>
             {pageNumber > 1 && (
               <div id="left-bttn" onClick={goToPrevPage}></div>
