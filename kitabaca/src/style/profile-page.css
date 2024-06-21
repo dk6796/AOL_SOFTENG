@@ -88,6 +88,15 @@
      right: 19vw;
 }
 
+#set-voucher-container{
+     /* background-color: red; */
+     width: 29vw;
+     height: 77vh;
+     position: fixed;
+     top: 11vh;
+     left: 19vw;
+}
+
 #book-form-container{
      display: flex;
      flex-direction: column;
@@ -125,6 +134,7 @@
      display: flex;
      flex-direction: column;
 }
+
 
 .book-component-container-3{
      display: flex;
@@ -166,7 +176,23 @@
      right: 20vw;
 }
 
+#voucher-submit{
+     background-color: transparent;
+     border: none;
+     font-size: 2vw;
+     font-family: Atma-bold;
+     text-align: start;
+     position: fixed;
+     bottom: 14vh;
+     left: 20vw;
+}
+
 #book-submit:hover{
+     color: white;
+     cursor: pointer;
+}
+
+#voucher-submit:hover{
      color: white;
      cursor: pointer;
 }
@@ -177,9 +203,25 @@
      gap: 0.5vw;
 }
 
+#voucherimg-container{
+     display: flex;
+     flex-direction: column;
+     margin-top: 0.5vw;
+     gap: 0.5vw;
+}
+
 #coverBookPhoto{
      background-color: white;
      width: 7vw;
+     height: 19vh;
+     /* position: fixed;
+     bottom: 15vh;
+     right: 19vw; */
+}
+
+#voucherImgPhoto{
+     background-color: white;
+     width: 22vw;
      height: 19vh;
      /* position: fixed;
      bottom: 15vh;

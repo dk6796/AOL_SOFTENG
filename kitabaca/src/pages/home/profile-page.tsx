@@ -20,7 +20,9 @@ export default function ProfilePage(){
 
      const [menuAdmin, setMenuAdmin] = useState<string>("book");
      const [image, setImage] = useState<File | null>(null);
+     const [voucher, setVoucher] = useState<File | null>(null);
      const [urlPhoto, setUrlPhoto] = useState<string>("");
+     const [urlImg, setUrlImg] = useState<string>("");
      const [file, setFile] = useState<File | null>(null);
      const [bookCategory, setBookCategory] = useState<string>("");
 
@@ -94,6 +96,15 @@ export default function ProfilePage(){
               const urlImage = URL.createObjectURL(selectedPhoto);
               setImage(selectedPhoto);
               setUrlPhoto(urlImage);
+          }
+     }
+
+     const handleImage = (e: React.ChangeEvent<HTMLInputElement>) => {
+          const selectedPhoto = e.target.files?.[0];
+          if(selectedPhoto){
+              const urlImage = URL.createObjectURL(selectedPhoto);
+              setVoucher(selectedPhoto);
+              setUrlImg(urlImage);
           }
      }
 
@@ -365,6 +376,28 @@ export default function ProfilePage(){
                                    </div>
                               ))}
                          </div>
+                    </div>
+               )}
+               {user?.Role == "Admin" && menuAdmin == "voucher" && (
+                    <div id="set-voucher-container">
+                         <form action="" id="book-form-container" onSubmit={handleUploadBook}>
+                              <label htmlFor="voucherName">Nama Voucher</label>
+                              <input type="text" name="voucherName" id="voucherName" />
+                              <label htmlFor="voucherCost">Harga Voucher</label>
+                              <input type="number" name="voucherCost" id="voucherCost" />
+                              <label htmlFor="voucherDesc">Deskripsi Voucher</label>
+                              <textarea name="voucherDesc" id="voucherDesc"></textarea>
+                              <div id="voucherimg-container">
+                                   {urlImg != "" && (
+                                        <img src={urlImg} alt="" id="voucherImgPhoto"/>
+                                   )}
+                                   <div className="book-component-container-2">
+                                        <label htmlFor="voucherImg">Gambar Voucher</label>
+                                        <input type="file" name="voucherImg" id="voucherImg" onChange={handleImage}/>
+                                   </div>
+                              </div>
+                              <button type="submit" id="voucher-submit">Submit</button>
+                         </form>
                     </div>
                )}
                {isOpenBookDetail && (
