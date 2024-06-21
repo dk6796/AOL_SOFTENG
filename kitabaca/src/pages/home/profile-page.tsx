@@ -383,8 +383,16 @@ export default function ProfilePage(){
                          <form action="" id="book-form-container" onSubmit={handleUploadBook}>
                               <label htmlFor="voucherName">Nama Voucher</label>
                               <input type="text" name="voucherName" id="voucherName" />
-                              <label htmlFor="voucherCost">Harga Voucher</label>
-                              <input type="number" name="voucherCost" id="voucherCost" />
+                              <div className="book-component-container-1">
+                                   <div className="book-component-container-2">
+                                        <label htmlFor="voucherCost">Harga Voucher</label>
+                                        <input type="number" name="voucherCost" id="voucherCost" />
+                                   </div>
+                                   <div className="book-component-container-2">
+                                        <label htmlFor="voucherStock">Stok Voucher</label>
+                                        <input type="number" name="voucherStock" id="voucherStock" />
+                                   </div>
+                              </div>
                               <label htmlFor="voucherDesc">Deskripsi Voucher</label>
                               <textarea name="voucherDesc" id="voucherDesc"></textarea>
                               <div id="voucherimg-container">
