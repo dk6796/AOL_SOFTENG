@@ -18,4 +18,6 @@ func Migrate(db *gorm.DB){
 	// db.AutoMigrate(&Option{})
 	// db.AutoMigrate(&BookHistory{})
 	// db.AutoMigrate(&QuizResult{})
+	// db.AutoMigrate(&Voucher{})
+	// db.AutoMigrate(&ExchangeVoucher{})
 }

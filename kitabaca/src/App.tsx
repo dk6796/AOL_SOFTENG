@@ -9,22 +9,25 @@ import ReadPage from './pages/tantangan/read-page'
 import QuizPage from './pages/tantangan/quiz-page'
 import {UserProvider} from "./context/userContext"
 import {BookProvider} from "./context/bookContext"
+import {VoucherProvider} from "./context/voucherContext"
 
 function App() {
   return (
     <Router>
       <UserProvider>
         <BookProvider>
-          <Routes>
-            <Route path="/" element={<HomePage/>}></Route>
-            <Route path="/LoginPage" element={<LoginPage/>}></Route>
-            <Route path="/RegisterPage" element={<RegisterPage/>}></Route>
-            <Route path="/ProfilePage" element={<ProfilePage/>}></Route>
-            <Route path="/TantanganPage" element={<TantanganPage/>}></Route>
-            <Route path="/ReadPage/:bookID" element={<ReadPage/>}></Route>
-            <Route path="/QuizPage/:bookID" element={<QuizPage/>}></Route>
-            <Route path="/VoucherPage" element={<VoucherPage/>}></Route>
-          </Routes>
+          <VoucherProvider>
+            <Routes>
+              <Route path="/" element={<HomePage/>}></Route>
+              <Route path="/LoginPage" element={<LoginPage/>}></Route>
+              <Route path="/RegisterPage" element={<RegisterPage/>}></Route>
+              <Route path="/ProfilePage" element={<ProfilePage/>}></Route>
+              <Route path="/TantanganPage" element={<TantanganPage/>}></Route>
+              <Route path="/ReadPage/:bookID" element={<ReadPage/>}></Route>
+              <Route path="/QuizPage/:bookID" element={<QuizPage/>}></Route>
+              <Route path="/VoucherPage" element={<VoucherPage/>}></Route>
+            </Routes>
+          </VoucherProvider>
         </BookProvider>
       </UserProvider>
     </Router>

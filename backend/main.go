@@ -73,6 +73,15 @@ func main(){
 		readData.GetUser(db, c)
 	})
 
+	router.POST("/addVoucher",controller.AddVoucherController)
+	router.GET("/getVoucher", func(c *gin.Context){
+		readData.GetVoucher(db, c)
+	})
+
+	router.POST("/addExchangeVoucher",controller.AddExchangeVoucherController)
+	router.GET("/getExchangeVoucher", func(c *gin.Context){
+		readData.GetExchangeVoucher(db, c)
+	})
 
 	router.PUT("/updateCategory/:id", update.UpdateCategoryBook)
 	router.PUT("/updateReadBook/:id", update.UpdateReadBook)

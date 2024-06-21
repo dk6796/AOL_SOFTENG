@@ -1,7 +1,6 @@
 package controller
 
 import (
-	// "io/ioutil"
 	"net/http"
 	"strconv"
 	"fmt"

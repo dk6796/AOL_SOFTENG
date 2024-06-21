@@ -2,7 +2,10 @@ import '../../style/profile-page.css'
 import { useState, useEffect   } from 'react';
 import useBook from "../../context/bookContext";
 import useUser from '../../context/userContext';
+import useVoucher from '../../context/voucherContext';
 import { IBook } from '../../interfaces/bookInterface';
+import { IVoucher } from '../../interfaces/voucherInterface';
+import { IExchangeVoucer } from '../../interfaces/exchangeVoucherInterface';
 import { storage } from '../../storage/firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import ErrorMessage from '../../components/errorMessage';
@@ -14,9 +17,11 @@ import { IError } from '../../interfaces/errorInterface';
 export default function ProfilePage(){
      const bookContext = useBook();
      const userContext = useUser();
+     const voucherContext = useVoucher();
 
      const { bookUpload, readBook, addQuestion, addOption, readQuestion, readOption } = bookContext
      const { user, fetchUser, logout, errorMessageHandler } = userContext;
+     const { voucherUpload, readVoucher } = voucherContext;
 
      const [menuAdmin, setMenuAdmin] = useState<string>("book");
      const [image, setImage] = useState<File | null>(null);
@@ -37,6 +42,8 @@ export default function ProfilePage(){
 
      const [questionList, setQuestionList] = useState<IQuestion[]>([]);
      const [optionList, setOptionList] = useState<IOption[]>([]);
+
+     const [voucherList, setVoucherList] = useState<IVoucher[]>([]);
 
      const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
           if (e.target.files) {
@@ -78,6 +85,11 @@ export default function ProfilePage(){
           setBookList(result);
      }
 
+     const getVoucherList = async () => {
+          const result = await readVoucher();
+          setVoucherList(result)
+     }
+
      const setToBook = () => {
           setMenuAdmin("book");
      }
@@ -115,6 +127,16 @@ export default function ProfilePage(){
                const downloadURL = await getDownloadURL(storageRef);
                console.log("url: "+downloadURL);
                formData.CoverBook = downloadURL;
+          }
+     }
+
+     const saveImgToStorage = async (formData: IVoucher) => {
+          const storageRef = ref(storage, `voucher/${image?.name}_${formData.VoucherName}`);
+          if(image){
+               await uploadBytes(storageRef, image);
+               const downloadURL = await getDownloadURL(storageRef);
+               console.log("url: "+downloadURL);
+               formData.VoucherImage = downloadURL;
           }
      }
 
@@ -254,6 +276,7 @@ export default function ProfilePage(){
 
      useEffect(() => {
           getBookList();
+          getVoucherList();
           getQuestionList();
           getOptionList();
           fetchUser();
@@ -392,6 +415,16 @@ export default function ProfilePage(){
                                         <label htmlFor="voucherStock">Stok Voucher</label>
                                         <input type="number" name="voucherStock" id="voucherStock" />
                                    </div>
+                              </div>
+                              <div className="book-component-container-2">
+                                   <label htmlFor="voucherType">Tipe Voucher</label>
+                                   <select name="voucherType" id="voucherType">
+                                        <option value=""></option>
+                                        <option value="makanan">Makanan</option>
+                                        <option value="minuman">Minuman</option>
+                                        <option value="buku">Buku</option>
+                                        <option value="lainnya">Lainnya</option>
+                                   </select>
                               </div>
                               <label htmlFor="voucherDesc">Deskripsi Voucher</label>
                               <textarea name="voucherDesc" id="voucherDesc"></textarea>
