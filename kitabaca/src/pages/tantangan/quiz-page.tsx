@@ -258,7 +258,9 @@ export default function QuizPage(){
 
      return (
           <div id="quiz-page-main-container">
-               {/* <ErrorMessage/> */}
+               {user?.Role == "user" && (
+                    <ErrorMessage/>
+               )}
                <div id="quiz-page-container">
                     <div id="time-left-container">
                          <div id="time-img"></div>

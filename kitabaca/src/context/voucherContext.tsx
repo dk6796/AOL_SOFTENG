@@ -1,14 +1,15 @@
 import { useState, useContext, createContext } from "react";
 import axios from "axios";
 import { IVoucher } from "../interfaces/voucherInterface";
-import { IExchangeVoucer } from "../interfaces/exchangeVoucherInterface";
+import { IExchangeVoucher } from "../interfaces/exchangeVoucherInterface";
 import { IChildren } from "../interfaces/childrenInterface";
 
 interface IVoucherContext {
      voucherUpload: (voucher: IVoucher) => Promise<string>;
      readVoucher: () => Promise<[]>;
-     exchangeVoucherUpload: (exchange: IExchangeVoucer) => Promise<string>;
+     exchangeVoucherUpload: (exchange: IExchangeVoucher) => Promise<string>;
      readExchangeVoucher: (id: number) => Promise<[]>;
+     updateStock: (id: number, totalStock: number) => Promise<string>;
 }
 
 const context = createContext<IVoucherContext>({} as IVoucherContext)
@@ -43,7 +44,7 @@ export function VoucherProvider({ children }: IChildren) {
        }
      };
 
-     const exchangeVoucherUpload = async (exchange: IExchangeVoucer) => {
+     const exchangeVoucherUpload = async (exchange: IExchangeVoucher) => {
           try {
             const response = await axios.post(
               import.meta.env.VITE_APP_BACKEND_URL + "/addExchangeVoucher",
@@ -72,11 +73,28 @@ export function VoucherProvider({ children }: IChildren) {
        }
      };
 
+     const updateStock = async (id: number, totalStock: number) => {
+      try {
+        console.log("TOTAL SINI : ", totalStock);
+        
+          const response = await axios.put(
+             `${import.meta.env.VITE_APP_BACKEND_URL}/updateStock/${id}`,{
+              TotalCoin: totalStock,
+             }
+          );
+          return response.data.message;
+       } catch (err) {
+          console.error('Error updating banned: ', err);
+          return err.response.data.error;
+       }
+    }
+
      const data: IVoucherContext = {
           voucherUpload,
           readVoucher,
           exchangeVoucherUpload,
           readExchangeVoucher,
+          updateStock
      };
    
      return <context.Provider value={data}>{children}</context.Provider>;

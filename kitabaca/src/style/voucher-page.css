@@ -202,3 +202,36 @@
      font-size: 1.5vw;
      margin-bottom: 3vh;
 }
+
+#success-container{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+}
+
+#success-container h2{
+     color: white;
+     font-size: 3vw;
+}
+
+#success-container h4{
+     color: red;
+     font-size: 1.5vw;
+}
+
+#success-result{
+     background-image: url('../assets/correct.gif');
+     background-size: 100% 100%;
+     width: 30vw;
+     height: 60vh;
+     margin-left: 2vw;
+}
+
+#failed-result{
+     background-image: url('../assets/wrong.gif');
+     background-size: 100% 100%;
+     width: 30vw;
+     height: 60vh;
+     margin-left: 2vw;
+}

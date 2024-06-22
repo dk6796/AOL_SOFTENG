@@ -86,6 +86,7 @@ func main(){
 	router.PUT("/updateCategory/:id", update.UpdateCategoryBook)
 	router.PUT("/updateReadBook/:id", update.UpdateReadBook)
 	router.PUT("/updateCoin/:id", update.UpdateCoin)
+	router.PUT("/updateStock/:id", update.UpdateStock)
 	router.PUT("/updateLevel/:id", update.UpdateLevel)
 
 	router.Run(":8080")

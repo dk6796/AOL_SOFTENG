@@ -5,7 +5,7 @@ import useUser from '../../context/userContext';
 import useVoucher from '../../context/voucherContext';
 import { IBook } from '../../interfaces/bookInterface';
 import { IVoucher } from '../../interfaces/voucherInterface';
-import { IExchangeVoucer } from '../../interfaces/exchangeVoucherInterface';
+import { IExchangeVoucher } from '../../interfaces/exchangeVoucherInterface';
 import { storage } from '../../storage/firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import ErrorMessage from '../../components/errorMessage';
@@ -340,7 +340,9 @@ export default function ProfilePage(){
      return (
           <div id="profile-page-container">
                <div id="bttn-close-profile" onClick={back}></div>
-               {/* <ErrorMessage/> */}
+               {user?.Role == "user" && (
+                    <ErrorMessage/>
+               )}
                {user?.Role == "Admin" && (
                     <div id="book-bttn" onClick={setToBook}>Buku</div>
                )}

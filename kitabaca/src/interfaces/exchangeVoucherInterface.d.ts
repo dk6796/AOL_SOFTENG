@@ -1,4 +1,4 @@
-export interface IExchangeVoucer{
+export interface IExchangeVoucher{
      ExchangeID?: number;
 	UserID?: number;
 	User?: User;

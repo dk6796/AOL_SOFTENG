@@ -124,7 +124,10 @@ export default function TantanganPage(){
      }
 
      const handleLevel = (level: number) => {
-          if(level < (user?.Level ?? 0)){
+          if(!user){
+               navigate('/LoginPage');
+          }
+          else if(level < (user?.Level ?? 0)){
                if(bookHistoryList.length != 0){
                     const res = checkProgress(level);
                     if(res != null){
@@ -285,7 +288,9 @@ export default function TantanganPage(){
                {loading && (
                     <LoadingScreen/>
                )}
-               {/* <ErrorMessage/> */}
+               {user?.Role == "user" && (
+                    <ErrorMessage/>
+               )}
                <div id="frame-petunjuk">
                     <h1>Petunjuk Permainan</h1>
                     <div id="desc-petunjuk">

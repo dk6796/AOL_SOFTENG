@@ -1,25 +1,30 @@
 import '../../style/voucher-page.css'
 import NavBar from '../../components/navbar'
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ErrorMessage from '../../components/errorMessage'
 import useUser from '../../context/userContext';
 import useVoucher from '../../context/voucherContext';
 import { IVoucher } from '../../interfaces/voucherInterface';
+import { IExchangeVoucher } from '../../interfaces/exchangeVoucherInterface';
 
 export default function VoucherPage(){
 
      const userContext = useUser();
      const voucherContext = useVoucher();
+     const navigate = useNavigate();
 
-     const { fetchUser } = userContext;
-     const { readVoucher } = voucherContext;
+     const { user, fetchUser, updateCoin } = userContext;
+     const { readVoucher, updateStock, exchangeVoucherUpload } = voucherContext;
 
      const [currType, setCurrType] = useState<string>("semua");
      const [voucherList, setVoucherList] = useState<IVoucher[]>([]);
      const [filteredVoucherList, setFilteredVoucherList] = useState<IVoucher[]>([]);
      const [openConfirm, setOpenConfirm] = useState<boolean>(false);
      const [openAnimation, setOpenAnimation] = useState<string>("");
-     const [voucherName, setVoucherName] = useState<string>("");
+     const [voucherDetail, setVoucherDetail] = useState<IVoucher>();
+     const [successSave, setSuccessSave] = useState<boolean>(false);
+     const [failedSave, setFailedSave] = useState<boolean>(false);
 
      const getVoucherList = async () => {
           const response = await readVoucher();
@@ -68,7 +73,7 @@ export default function VoucherPage(){
 
      const openConfirmation = (voucher: IVoucher) => {
           setOpenConfirm(true);
-          setVoucherName(voucher.VoucherName ?? "");
+          setVoucherDetail(voucher);
      }
 
      const closeConfirmartion = () => {
@@ -79,9 +84,89 @@ export default function VoucherPage(){
           }, 400); 
      }
 
+     const updateCoinToDB = async (coin: number) => {
+          const total_coin = (user?.TotalCoin ?? 0) - coin;
+          console.log("TOTAL COIN SKRG: ", total_coin);
+          
+          const response = await updateCoin(user?.UserID ?? 0, total_coin);
+          if(response != "Success"){
+               console.log(response);
+               return false;
+          }
+          return true;
+     }
+
+     const updateStockToDB = async () => {
+          const total_stock = (voucherDetail?.VoucherStock ?? 0) - 1;
+          console.log("TOTAL STOCK SKRG: ", total_stock);
+          
+          const response = await updateStock(voucherDetail?.VoucherID ?? 0, total_stock);
+          if(response != "Success"){
+               console.log(response);
+               return false;
+          }
+          return true;
+     }
+
+     const saveExchangeToDB = async (exchange: IExchangeVoucher) => {
+          const response = await exchangeVoucherUpload(exchange);
+          if(response != "Succesfull"){
+               console.log(response);
+          }
+          console.log("BERHASILLL");
+          closeConfirmartion();
+          setSuccessSave(true);
+     }
+
+     const addExchangeTransaction = async (id: number, coin: number) => {
+          if(user){
+               if((user?.TotalCoin ?? 0) >= coin){
+                    const exchange: IExchangeVoucher = {
+                         UserID: user?.UserID,
+                         VoucherID: id,
+                         ExchangeTime: new Date(),
+                    }
+          
+                    if(await updateCoinToDB(coin) && await updateStockToDB()){
+                         await saveExchangeToDB(exchange)
+                    }
+               }
+               else{
+                    closeConfirmartion();
+                    setFailedSave(true);
+               }
+          }
+          else{
+               navigate('/LoginPage')
+          }
+     }
+
+     const resetSuccessSave = () => {
+          if(successSave){
+               setTimeout(() => {
+                    setSuccessSave(false);
+               }, 4000);
+          }
+     }
+
+     const resetFailedSave = () => {
+          if(failedSave){
+               setTimeout(() => {
+                    setFailedSave(false);
+               }, 4000);
+          }
+     }
+
+     useEffect(() => {
+          resetSuccessSave();
+          resetFailedSave();
+     }, [successSave, failedSave]);
+
      return (
           <div id="voucher-main-container">
-               {/* <ErrorMessage/> */}
+               {user?.Role == "user" && (
+                    <ErrorMessage/>
+               )}
               <NavBar menu="voucher"/>
               <div id="type-filter-container">
                    <div className={currType == "semua" ?  `filter-voucher-selected` : `filter-voucher`} onClick={chooseSemua}>Semua</div>
@@ -133,14 +218,33 @@ export default function VoucherPage(){
                     <div id="confirmation-container-background">
                          <div className={`exchange-confirmation-container ${openAnimation}`}>
                               <h1>Konfirmasi</h1>
-                              <div id="exchange-confirm-desc">Anda yakin ingin menukarkan koin Anda dengan <b>{voucherName}</b> ?</div>
+                              <div id="exchange-confirm-desc">Anda yakin ingin menukarkan koin Anda dengan <b>{voucherDetail?.VoucherName}</b> ?</div>
                               <div id="confirmation-bttn-container">
-                                   <div id="yakin-bttn" >Yakin</div>
+                                   <div id="yakin-bttn" onClick={() => addExchangeTransaction(voucherDetail?.VoucherID ?? 0, voucherDetail?.VoucherCost ?? 0)}>Yakin</div>
                                    <div id="tidak-bttn" onClick={closeConfirmartion}>Tidak</div>
                               </div>
                          </div> 
                     </div>
-               )}             
+               )} 
+               {failedSave && (
+                    <div id="confirmation-container-background">
+                         <div id="success-container">
+                              <div id="failed-result"></div>
+                              <h2>Gagal</h2>
+                              <h4>Koin Anda tidak cukup</h4>
+                         </div>
+                    </div>
+               )}
+               {successSave && (
+                    <div id="confirmation-container-background">
+                         <div id="success-container">
+                              <div id="success-result"></div>
+                              <h2>Berhasil</h2>
+                              <h4>silahkan cek voucher Anda di Profile Menu pada bagian History Penukaran</h4>
+                         </div>
+                    </div> 
+               )}
+                          
           </div>
      )
 }
